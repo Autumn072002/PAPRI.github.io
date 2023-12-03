@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/bootstrap/icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link rel="icon" href="assets/images/papri1.png">
-    <title><?=$data['page_title']?></title>
-</head>
+<header class="header">
 
-<body>
+   <div class="flex">
+
+      <a href="http://localhost/PAPRI/?" class="logo">PAPRI</a>
+
+      <nav class="navbar">
+         <a href="post.php">add products</a>
+         <a href="products.php">view products</a>
+      </nav>
+
+      <?php
+      
+      $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
+      $row_count = mysqli_num_rows($select_rows);
+
+      ?>
+
+      <a href="cart.php" class="cart">cart <span><?php echo $row_count; ?></span> </a>
+
+      <div id="menu-btn" class="fas fa-bars"></div>
+
+   </div>
+
+</header>
